@@ -1,35 +1,26 @@
 /**
- * OOPSBannerApp
- *
- * UC3: Prints the word "OOPS" in large banner format using String.join().
+ * OOPSBannerApp UC5 - Render OOPS as Banner using Inline Array Initialization
  *
  * @author Shweta
- * @version 3.0
+ * @version 5.0
  */
 
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        System.out.println(String.join(" ",
-                " *****  ", " *****  ", " ****** ", " ****** "));
+        String[] lines = {
+            String.join(" ", " ***** ", " ***** ", " ****** ", " ****** "),
+            String.join(" ", "*     *", "*     *", "*     *", "*      "),
+            String.join(" ", "*     *", "*     *", "*     *", "*      "),
+            String.join(" ", "*     *", "*     *", "****** ", " ***** "),
+            String.join(" ", "*     *", "*     *", "*      ", "      *"),
+            String.join(" ", "*     *", "*     *", "*      ", "      *"),
+            String.join(" ", " ***** ", " ***** ", "*      ", " ***** ")
+        };
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*     * ", "*      "));
-
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*     * ", "*      "));
-
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "******  ", " ***** "));
-
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*       ", "      *"));
-
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*       ", "      *"));
-
-        System.out.println(String.join(" ",
-                " *****  ", " *****  ", "*       ", " ***** "));
+        for (String line : lines) {
+            System.out.println(line);
+        }
     }
 }
