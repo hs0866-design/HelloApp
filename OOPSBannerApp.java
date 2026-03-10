@@ -1,35 +1,65 @@
 /**
- * OOPSBannerApp
- *
- * UC3: Prints the word "OOPS" in large banner format using String.join().
+ * OOPSBannerApp UC6 - Refactor Banner Logic into Functions
  *
  * @author Shweta
- * @version 3.0
+ * @version 6.0
  */
 
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        System.out.println(String.join(" ",
-                " *****  ", " *****  ", " ****** ", " ****** "));
+        String[] o = getOPattern();
+        String[] p = getPPattern();
+        String[] s = getSPattern();
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*     * ", "*      "));
+        String[] banner = new String[7];
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*     * ", "*      "));
+        for (int i = 0; i < 7; i++) {
+            banner[i] = o[i] + " " + o[i] + " " + p[i] + " " + s[i];
+        }
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "******  ", " ***** "));
+        for (String line : banner) {
+            System.out.println(line);
+        }
+    }
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*       ", "      *"));
+    // Helper method for O
+    public static String[] getOPattern() {
+        return new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        };
+    }
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*       ", "      *"));
+    // Helper method for P
+    public static String[] getPPattern() {
+        return new String[]{
+                "****** ",
+                "*     *",
+                "*     *",
+                "****** ",
+                "*      ",
+                "*      ",
+                "*      "
+        };
+    }
 
-        System.out.println(String.join(" ",
-                " *****  ", " *****  ", "*       ", " ***** "));
+    // Helper method for S
+    public static String[] getSPattern() {
+        return new String[]{
+                " ***** ",
+                "*      ",
+                "*      ",
+                " ***** ",
+                "      *",
+                "      *",
+                " ***** "
+        };
     }
 }
