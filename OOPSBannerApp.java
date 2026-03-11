@@ -1,35 +1,65 @@
-/**
- * OOPSBannerApp
- *
- * UC3: Prints the word "OOPS" in large banner format using String.join().
- *
- * @author Shweta
- * @version 3.0
- */
-
 public class OOPSBannerApp {
+
+    // Inner class to store character pattern
+    static class CharacterPattern {
+        private char character;
+        private String[] pattern;
+
+        public CharacterPattern(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    // Print banner
+    public static void printBanner(CharacterPattern[] letters) {
+        for (int row = 0; row < 7; row++) {
+            StringBuilder line = new StringBuilder();
+            for (CharacterPattern letter : letters) {
+                line.append(letter.getPattern()[row]).append("   ");
+            }
+            System.out.println(line);
+        }
+    }
 
     public static void main(String[] args) {
 
-        System.out.println(String.join(" ",
-                " *****  ", " *****  ", " ****** ", " ****** "));
+        CharacterPattern O = new CharacterPattern('O', new String[]{
+            " **** ",
+            "**  **",
+            "**  **",
+            "**  **",
+            "**  **",
+            "**  **",
+            " **** "
+        });
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*     * ", "*      "));
+        CharacterPattern P = new CharacterPattern('P', new String[]{
+            "******",
+            "**  **",
+            "**  **",
+            "******",
+            "**    ",
+            "**    ",
+            "**    "
+        });
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*     * ", "*      "));
+        CharacterPattern S = new CharacterPattern('S', new String[]{
+            " ******",
+            "**     ",
+            "**     ",
+            " ***** ",
+            "     **",
+            "     **",
+            "****** "
+        });
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "******  ", " ***** "));
+        CharacterPattern[] banner = {O, O, P, S};
 
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*       ", "      *"));
-
-        System.out.println(String.join(" ",
-                "*     * ", "*     * ", "*       ", "      *"));
-
-        System.out.println(String.join(" ",
-                " *****  ", " *****  ", "*       ", " ***** "));
+        printBanner(banner);
     }
 }
