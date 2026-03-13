@@ -1,65 +1,65 @@
-/**
- * OOPSBannerApp UC6 - Refactor Banner Logic into Functions
- *
- * @author Shweta
- * @version 6.0
- */
-
 public class OOPSBannerApp {
 
-    public static void main(String[] args) {
+    // Inner class to store character pattern
+    static class CharacterPattern {
+        private char character;
+        private String[] pattern;
 
-        String[] o = getOPattern();
-        String[] p = getPPattern();
-        String[] s = getSPattern();
-
-        String[] banner = new String[7];
-
-        for (int i = 0; i < 7; i++) {
-            banner[i] = o[i] + " " + o[i] + " " + p[i] + " " + s[i];
+        public CharacterPattern(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
         }
 
-        for (String line : banner) {
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    // Print banner
+    public static void printBanner(CharacterPattern[] letters) {
+        for (int row = 0; row < 7; row++) {
+            StringBuilder line = new StringBuilder();
+            for (CharacterPattern letter : letters) {
+                line.append(letter.getPattern()[row]).append("   ");
+            }
             System.out.println(line);
         }
     }
 
-    // Helper method for O
-    public static String[] getOPattern() {
-        return new String[]{
-                " ***** ",
-                "*     *",
-                "*     *",
-                "*     *",
-                "*     *",
-                "*     *",
-                " ***** "
-        };
-    }
+    public static void main(String[] args) {
 
-    // Helper method for P
-    public static String[] getPPattern() {
-        return new String[]{
-                "****** ",
-                "*     *",
-                "*     *",
-                "****** ",
-                "*      ",
-                "*      ",
-                "*      "
-        };
-    }
+        CharacterPattern O = new CharacterPattern('O', new String[]{
+            " **** ",
+            "**  **",
+            "**  **",
+            "**  **",
+            "**  **",
+            "**  **",
+            " **** "
+        });
 
-    // Helper method for S
-    public static String[] getSPattern() {
-        return new String[]{
-                " ***** ",
-                "*      ",
-                "*      ",
-                " ***** ",
-                "      *",
-                "      *",
-                " ***** "
-        };
+        CharacterPattern P = new CharacterPattern('P', new String[]{
+            "******",
+            "**  **",
+            "**  **",
+            "******",
+            "**    ",
+            "**    ",
+            "**    "
+        });
+
+        CharacterPattern S = new CharacterPattern('S', new String[]{
+            " ******",
+            "**     ",
+            "**     ",
+            " ***** ",
+            "     **",
+            "     **",
+            "****** "
+        });
+
+        CharacterPattern[] banner = {O, O, P, S};
+
+        printBanner(banner);
     }
 }
